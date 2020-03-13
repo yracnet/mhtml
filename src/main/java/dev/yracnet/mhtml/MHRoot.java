@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  *
@@ -28,7 +29,7 @@ public class MHRoot {
     private String mimeVersion;
     private String contentType;
     private String boundary;
-    private List<MHItem> mhfile = new ArrayList<>();;
+    private List<MHItem> mhItem = new ArrayList<>();;
 
     public void setContentType(String contentType) {
         this.contentType = contentType;
@@ -41,7 +42,11 @@ public class MHRoot {
     }
 
     public void addItem(MHItem item) {
-        mhfile.add(item);
+        mhItem.add(item);
+    }
+
+    public void forEachMhItem(Consumer<MHItem> action) {
+        mhItem.forEach(action);
     }
 
 }

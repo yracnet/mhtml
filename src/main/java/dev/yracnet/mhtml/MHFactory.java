@@ -52,7 +52,6 @@ public class MHFactory {
                 System.out.println("---> ?" + name + " - " + value);
             }
         }
-        System.out.println(root);
         String boundary = root.getBoundary();
         //read fisrt blank block
         readBoundaryBlock(reader, boundary);
@@ -80,7 +79,6 @@ public class MHFactory {
             content = readBoundaryBlock(reader, boundary);
             item.setContent(content);
             root.addItem(item);
-            System.out.println("1--> " + item);
             block = readBlock(reader);
         };
         return root;
